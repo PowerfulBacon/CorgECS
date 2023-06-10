@@ -16,6 +16,9 @@ namespace CorgECS.Tests
 		private class TestSignal : Signal
 		{ }
 
+		private class ResponseSignal : Signal<int>
+		{ }
+
 		private class TestComponent : Component
 		{
 
@@ -24,6 +27,7 @@ namespace CorgECS.Tests
 			public override void Initialise()
 			{
 				RegisterSignal<TestSignal>(x => testPassed = true);
+				RegisterSignal<ResponseSignal, int>(x => new SignalResult<int>(10));
 			}
 		}
 
@@ -35,6 +39,17 @@ namespace CorgECS.Tests
 			testEntity.AddComponent(createdComponent);
 			testEntity.Raise(new TestSignal());
 			Assert.IsTrue(createdComponent.testPassed);
+		}
+
+		[TestMethod]
+		public void TestResponseSignal()
+		{
+			Entity testEntity = new Entity();
+			TestComponent createdComponent = new TestComponent();
+			testEntity.AddComponent(createdComponent);
+			SignalResult<int> result = testEntity.Raise<ResponseSignal, int>(new ResponseSignal());
+			// Check that we have a 10
+			Assert.IsTrue(result.Contains(10));
 		}
 
 	}

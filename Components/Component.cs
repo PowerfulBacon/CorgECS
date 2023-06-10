@@ -38,7 +38,13 @@ namespace CorgECS.Components
 		public void RegisterSignal<T>(Action<T> signalHandler)
 			where T : Signal
 		{
-			Parent?.RegisterSignal(signalHandler);
+			Parent?.RegisterSignal<T>(signalHandler);
+		}
+
+		public void RegisterSignal<TSignal, TResult>(Func<Signal<TResult>, SignalResult<TResult>> signalHandler)
+			where TSignal : Signal<TResult>
+		{
+			Parent?.RegisterSignal<TSignal, TResult>(signalHandler);
 		}
 
 	}

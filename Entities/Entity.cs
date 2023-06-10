@@ -100,12 +100,12 @@ namespace CorgECS.Entities
 			{
 				if (SignalList.TryGetValue(typeof(TSignal), out SignalList? signalist))
 				{
-					signalist.AddSignal(signalHandler);
+					signalist.AddSignal<TSignal, TResult>(signalHandler);
 				}
 				else
 				{
 					SignalList createdSignalList = new SignalList();
-					createdSignalList.AddSignal(signalHandler);
+					createdSignalList.AddSignal<TSignal, TResult>(signalHandler);
 					SignalList.Add(typeof(TSignal), createdSignalList);
 				}
 			}
@@ -121,7 +121,7 @@ namespace CorgECS.Entities
 		{
 			lock (SignalList)
 			{
-				if (SignalList.TryGetValue(signal.GetType(), out SignalList? signalist))
+				if (SignalList.TryGetValue(typeof(TSignal), out SignalList? signalist))
 				{
 					return signalist.HandleSignal<TSignal, TResult>(signal);
 				}
