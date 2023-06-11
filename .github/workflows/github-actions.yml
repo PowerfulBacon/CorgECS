@@ -32,4 +32,4 @@ jobs:
           msbuild.exe CorgECS.sln /p:platform="ARM32" /p:configuration="Release"
         
       - name: Run Tests
-        run: vstest.console.exe ..\CorgECS.Tests\bin\Release\net7.0\CorgECS.Tests.dll
+        run: vstest.console.exe CorgECS.Tests\bin\Release\net7.0\CorgECS.Tests.dll

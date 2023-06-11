@@ -9,7 +9,8 @@ Entities hold components. You can add a component to an entity by calling the `A
 method.
 
 ```csharp
-Entity testEntity = new Entity();
+World world = new World();
+Entity testEntity = world.CreateEntity();
 testEntity.AddComponent(new TestComponent());
 ```
 
@@ -79,7 +80,8 @@ public class ExampleSignal : Signal
 Signals can be raised against an entity by calling `Entity.Raise()`.
 
 ```csharp
-Entity exampleEntity = new Entity();
+World world = new World();
+Entity exampleEntity = world.CreateEntity();
 // Add a component to the entity which listens for the Example signal here.
 exampleEntity.Raise(new ExampleSignal(5));
 ```
@@ -116,7 +118,8 @@ public class TestComponent : Component
 ```
 
 ```csharp
-Entity testEntity = new Entity();
+World world = new World();
+Entity testEntity = world.CreateEntity();
 testEntity.AddComponent(new TestComponent());
 SignalResult<int> result = testEntity.Raise<ResponseSignal, int>(new ResponseSignal());
 ```
@@ -127,3 +130,39 @@ of the return value despite it being defined in the signal class itself. It woul
 to modify the code so that it only requires the return type, however this could get
 confusing. If you have any idea of a workaround of this, please open a PR or contact
 me on discord.
+
+## Entity Systems
+
+Entity systems allow for tracking components and sharing states between different components
+easilly.
+
+You can fetch a singleton EntitySystem by calling World.GetEntitySystem().
+
+```csharp
+World world = new World();
+world.GetEntitySystem<ExampleSystem>();
+```
+
+Components can join an entity system by calling EntitySystem.JoinSystem(). This will cause
+the entity system to begin tracking the entity, so that it can be queried later.
+
+```csharp
+/// We are required to specify the type of components that we want to track.
+/// This could just be Component if we want to track any component type.
+public class TestSystem : EntitySystem<TestComponent>
+{ }
+
+class TestComponent : Component
+{
+
+	public override void Initialise()
+	{
+		World.GetEntitySystem<TestSystem>()
+			.JoinSystem(this);
+	}
+
+}
+```
+
+We can now get the entity system from anywhere in the code and execute queries across
+all components that are being tracked.
