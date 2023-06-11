@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CorgECS", "CorgECS.csproj", "{002AB477-6E89-4DC0-AC3F-2308354D7F4D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CorgECS.Tests", "CorgECS.Tests\CorgECS.Tests.csproj", "{28408946-4B8C-4ED7-8060-25F2B9FF1749}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM32 = Debug|ARM32
+		Debug|ARM64 = Debug|ARM64
+		Release|Any CPU = Release|Any CPU
+		Release|ARM32 = Release|ARM32
+		Release|ARM64 = Release|ARM64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{002AB477-6E89-4DC0-AC3F-2308354D7F4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{002AB477-6E89-4DC0-AC3F-2308354D7F4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{002AB477-6E89-4DC0-AC3F-2308354D7F4D}.Debug|ARM32.ActiveCfg = Debug|ARM32
+		{002AB477-6E89-4DC0-AC3F-2308354D7F4D}.Debug|ARM32.Build.0 = Debug|ARM32
+		{002AB477-6E89-4DC0-AC3F-2308354D7F4D}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{002AB477-6E89-4DC0-AC3F-2308354D7F4D}.Debug|ARM64.Build.0 = Debug|ARM64
+		{002AB477-6E89-4DC0-AC3F-2308354D7F4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{002AB477-6E89-4DC0-AC3F-2308354D7F4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{002AB477-6E89-4DC0-AC3F-2308354D7F4D}.Release|ARM32.ActiveCfg = Release|ARM32
+		{002AB477-6E89-4DC0-AC3F-2308354D7F4D}.Release|ARM32.Build.0 = Release|ARM32
+		{002AB477-6E89-4DC0-AC3F-2308354D7F4D}.Release|ARM64.ActiveCfg = Release|ARM64
+		{002AB477-6E89-4DC0-AC3F-2308354D7F4D}.Release|ARM64.Build.0 = Release|ARM64
+		{28408946-4B8C-4ED7-8060-25F2B9FF1749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28408946-4B8C-4ED7-8060-25F2B9FF1749}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28408946-4B8C-4ED7-8060-25F2B9FF1749}.Debug|ARM32.ActiveCfg = Debug|ARM32
+		{28408946-4B8C-4ED7-8060-25F2B9FF1749}.Debug|ARM32.Build.0 = Debug|ARM32
+		{28408946-4B8C-4ED7-8060-25F2B9FF1749}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{28408946-4B8C-4ED7-8060-25F2B9FF1749}.Debug|ARM64.Build.0 = Debug|ARM64
+		{28408946-4B8C-4ED7-8060-25F2B9FF1749}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28408946-4B8C-4ED7-8060-25F2B9FF1749}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28408946-4B8C-4ED7-8060-25F2B9FF1749}.Release|ARM32.ActiveCfg = Release|ARM32
+		{28408946-4B8C-4ED7-8060-25F2B9FF1749}.Release|ARM32.Build.0 = Release|ARM32
+		{28408946-4B8C-4ED7-8060-25F2B9FF1749}.Release|ARM64.ActiveCfg = Release|ARM64
+		{28408946-4B8C-4ED7-8060-25F2B9FF1749}.Release|ARM64.Build.0 = Release|ARM64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {16C2606D-2B31-4FEA-B1CF-9CD3D3627CCB}
+	EndGlobalSection
+EndGlobal
