@@ -1,5 +1,7 @@
 ﻿using CorgECS.Entities;
 using CorgECS.Signals;
+using CorgECS.Systems;
+using CorgECS.Worlds;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,15 +13,18 @@ namespace CorgECS.Components
 	public abstract class Component
 	{
 
-		public Entity? Parent { get; private set; }
+		public World World { get; private set; } = null!;
+
+		public Entity Parent { get; private set; } = null!;
 
 		/// <summary>
 		/// Create the component and attach it to the parent
 		/// </summary>
 		/// <param name="parent"></param>
-		public void LinkComponent(Entity parent)
+		internal virtual void LinkComponent(Entity parent)
 		{
 			Parent = parent;
+			World = parent.World;
 			Initialise();
 		}
 

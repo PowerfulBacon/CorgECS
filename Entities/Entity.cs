@@ -1,5 +1,6 @@
 ﻿using CorgECS.Components;
 using CorgECS.Signals;
+using CorgECS.Worlds;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,19 +9,58 @@ using System.Threading.Tasks;
 
 namespace CorgECS.Entities
 {
+	/// <summary>
+	/// An entity, created from World.CreateEntity.
+	/// </summary>
 	public class Entity
 	{
+
+		/// <summary>
+		/// The world that we exist within
+		/// </summary>
+		public World World { get; }
+
+		public Entity(World world)
+		{
+			World = world;
+		}
 
 		#region Components
 
 		public List<Component> Components { get; } = new List<Component>();
 
+		/// <summary>
+		/// Add a component to this entity, link the component and then initialise it.
+		/// </summary>
+		/// <param name="component"></param>
+		/// <exception cref="Exception"></exception>
 		public void AddComponent(Component component)
 		{
 			if (component.Parent != null)
 				throw new Exception($"Cannot add {component.GetType()} to entity due to it already being attached to an entity.");
 			Components.Add(component);
 			component.LinkComponent(this);
+		}
+
+		/// <summary>
+		/// Add a component in a builder style.
+		/// </summary>
+		/// <param name="component"></param>
+		public Entity WithComponent(Component component)
+		{
+			AddComponent(component);
+			return this;
+		}
+
+		/// <summary>
+		/// Get the first component with the type T.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <returns></returns>
+		public T? GetComponent<T>()
+			where T : Component
+		{
+			return (T?)Components.FirstOrDefault(x => typeof(T).IsAssignableFrom(x.GetType()));
 		}
 
 		#endregion

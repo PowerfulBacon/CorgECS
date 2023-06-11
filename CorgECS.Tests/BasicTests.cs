@@ -1,6 +1,7 @@
 ﻿using CorgECS.Components;
 using CorgECS.Entities;
 using CorgECS.Signals;
+using CorgECS.Worlds;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,8 @@ namespace CorgECS.Tests
 		[TestMethod]
 		public void TestSignalHandling()
 		{
-			Entity testEntity = new Entity();
+			World world = new World();
+			Entity testEntity = world.CreateEntity();
 			TestComponent createdComponent = new TestComponent();
 			testEntity.AddComponent(createdComponent);
 			testEntity.Raise(new TestSignal());
@@ -44,7 +46,8 @@ namespace CorgECS.Tests
 		[TestMethod]
 		public void TestResponseSignal()
 		{
-			Entity testEntity = new Entity();
+			World world = new World();
+			Entity testEntity = world.CreateEntity();
 			TestComponent createdComponent = new TestComponent();
 			testEntity.AddComponent(createdComponent);
 			SignalResult<int> result = testEntity.Raise<ResponseSignal, int>(new ResponseSignal());
