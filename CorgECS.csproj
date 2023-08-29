@@ -5,12 +5,35 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Platforms>AnyCPU;ARM32;ARM64</Platforms>
+    <Authors>PowerfulBacon</Authors>
+    <RepositoryUrl>https://github.com/PowerfulBacon/CorgECS</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Copyright></Copyright>
+    <Description>A lightweight, simple and concise E/C library for C# designed for games with compiler-time safety in mind.</Description>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>game, ecs, game-development, component-library</PackageTags>
+    <Title>CorgECS</Title>
+    <AssemblyVersion></AssemblyVersion>
+    <Version>1.0.0</Version>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="CorgECS.Tests\**" />
     <EmbeddedResource Remove="CorgECS.Tests\**" />
     <None Remove="CorgECS.Tests\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
