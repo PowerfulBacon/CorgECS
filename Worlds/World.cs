@@ -38,7 +38,7 @@ namespace CorgECS.Worlds
 				}
 				else
 				{
-					T createdSystem = new();
+					T createdSystem = new T();
 					createdSystem.JoinWorld(this);
 					EntitySystems.Add(typeof(T), createdSystem);
 					return createdSystem;
